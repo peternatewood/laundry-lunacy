@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://prefabs/Basket.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/Washer.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://prefabs/Room_Boundaries.tscn" type="PackedScene" id=4]
 [ext_resource path="res://prefabs/Sock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://prefabs/Boxers.tscn" type="PackedScene" id=6]
+[ext_resource path="res://prefabs/Pants.tscn" type="PackedScene" id=7]
+[ext_resource path="res://prefabs/Shirt.tscn" type="PackedScene" id=8]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 3 )
@@ -21,11 +23,22 @@ anchor_mode = 0
 ] instance=ExtResource( 2 )]
 position = Vector2( 32, 304 )
 
+[node name="Washer2" parent="." groups=[
+"washers",
+] instance=ExtResource( 2 )]
+position = Vector2( 928, 304 )
+
 [node name="Basket" parent="." instance=ExtResource( 1 )]
-position = Vector2( 842, 544 )
+position = Vector2( 684.432, 697.251 )
 
 [node name="Sock" parent="." instance=ExtResource( 5 )]
 position = Vector2( 164.6, 464.05 )
 
 [node name="Boxers" parent="." instance=ExtResource( 6 )]
 position = Vector2( 102.6, 339.15 )
+
+[node name="Pants" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1001.53, 351.831 )
+
+[node name="Shirt" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1046.86, 218.005 )
