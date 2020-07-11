@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://prefabs/Basket.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/Washer.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://prefabs/Boxers.tscn" type="PackedScene" id=6]
 [ext_resource path="res://prefabs/Pants.tscn" type="PackedScene" id=7]
 [ext_resource path="res://prefabs/Shirt.tscn" type="PackedScene" id=8]
+[ext_resource path="res://prefabs/HUD.tscn" type="PackedScene" id=9]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 3 )
@@ -42,3 +43,10 @@ position = Vector2( 1001.53, 351.831 )
 
 [node name="Shirt" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1046.86, 218.005 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 9 )]
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
