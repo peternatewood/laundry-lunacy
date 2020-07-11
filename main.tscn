@@ -14,9 +14,9 @@ anchor_mode = 0
 
 [node name="Room Boundaries" parent="." instance=ExtResource( 4 )]
 
-[node name="Washers" type="Node2D" parent="."]
-
-[node name="Washer" parent="Washers" instance=ExtResource( 2 )]
+[node name="Washer" parent="." groups=[
+"washers",
+] instance=ExtResource( 2 )]
 position = Vector2( 32, 304 )
 
 [node name="Basket" parent="." instance=ExtResource( 1 )]
