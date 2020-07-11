@@ -19,6 +19,20 @@ config/name="Laundry Lunacy"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1280
+window/size/height=768
+window/size/resizable=false
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Clothes"
+2d_physics/layer_3="Slime"
+2d_physics/layer_4="Basket"
+2d_physics/layer_5="Bucket"
+
 [rendering]
 
 quality/intended_usage/framebuffer_allocation=1
