@@ -26,7 +26,8 @@ func _input(event):
 				else:
 					basket.upright()
 	elif event.is_action("grab"):
-		if event.pressed and basket.mouse_over:
-			basket.grab(mouse_pos)
+		if event.pressed:
+			if not event.is_echo() and basket.mouse_over and not basket.grabbed:
+				basket.grab(mouse_pos)
 		elif basket.grabbed:
 			basket.release()
