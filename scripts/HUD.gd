@@ -47,8 +47,9 @@ func _process(delta):
 		seconds_label.set_text(String(remaining_seconds).pad_zeros(2))
 
 
-func hide_round_over():
+func reset():
 	round_over.hide()
+	timer.start()
 
 
 signal new_round_pressed
