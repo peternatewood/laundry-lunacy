@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/laundry_room_ambience.ogg-2b40caf46b1511e36f9d6a329d43bb68.oggstr"
+
+[deps]
+
+source_file="res://sounds/laundry_room_ambience.ogg"
+dest_files=[ "res://.import/laundry_room_ambience.ogg-2b40caf46b1511e36f9d6a329d43bb68.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
