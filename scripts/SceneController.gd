@@ -15,6 +15,9 @@ func _ready():
 
 	spawn_clothing()
 
+	for leaking_pipe in get_tree().get_nodes_in_group("leaking_pipes"):
+		leaking_pipe.connect("pipe_leaked", self, "_on_pipe_leaked")
+
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -51,6 +54,14 @@ func _on_new_round_pressed():
 	basket.reset()
 
 	get_tree().set_pause(false)
+
+
+func _on_pipe_leaked(leak_position: Vector2):
+	print("pipe_leaked")
+	var slime_drop = SLIME_DROP.instance()
+	add_child(slime_drop)
+	slime_drop.set_position(leak_position)
+	slime_drop.add_to_group("slime_drops")
 
 
 func _on_quit_pressed():
@@ -91,3 +102,4 @@ const CLOTHING_PREFABS: Array = [
 	preload("res://prefabs/Shirt.tscn"),
 	preload("res://prefabs/Sock.tscn")
 ]
+const SLIME_DROP = preload("res://prefabs/Slime_Drop.tscn")

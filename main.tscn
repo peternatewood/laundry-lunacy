@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://prefabs/Basket.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/Washer.tscn" type="PackedScene" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://prefabs/Pants.tscn" type="PackedScene" id=7]
 [ext_resource path="res://prefabs/Shirt.tscn" type="PackedScene" id=8]
 [ext_resource path="res://prefabs/HUD.tscn" type="PackedScene" id=9]
+[ext_resource path="res://prefabs/Slime_Drop.tscn" type="PackedScene" id=10]
+[ext_resource path="res://prefabs/Pipe.tscn" type="PackedScene" id=11]
+[ext_resource path="res://prefabs/Leaking_Pipe.tscn" type="PackedScene" id=12]
+[ext_resource path="res://prefabs/Bucket.tscn" type="PackedScene" id=13]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 3 )
@@ -29,8 +33,19 @@ position = Vector2( 32, 304 )
 ] instance=ExtResource( 2 )]
 position = Vector2( 928, 304 )
 
+[node name="Pipe" parent="." instance=ExtResource( 11 )]
+position = Vector2( 0, 56 )
+
+[node name="Leaking Pipe" parent="." groups=[
+"leaking_pipes",
+] instance=ExtResource( 12 )]
+position = Vector2( 128, 56 )
+
 [node name="Basket" parent="." instance=ExtResource( 1 )]
 position = Vector2( 684.432, 697.251 )
+
+[node name="Bucket" parent="." instance=ExtResource( 13 )]
+position = Vector2( 454.29, 709.828 )
 
 [node name="Sock" parent="." groups=[
 "clothes",
@@ -58,6 +73,13 @@ sleeping = true
 ] instance=ExtResource( 8 )]
 visible = false
 position = Vector2( -466.326, 122.805 )
+sleeping = true
+
+[node name="Slime Drop" parent="." groups=[
+"slime_drops",
+] instance=ExtResource( 10 )]
+visible = false
+position = Vector2( -265.559, 8.35092 )
 sleeping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
