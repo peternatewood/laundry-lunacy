@@ -3,10 +3,10 @@ extends StaticBody2D
 onready var interior = get_node("Interior")
 onready var launch_point = get_node("Launch Point")
 onready var spawn_points = get_node("Spawn Points").get_children()
+onready var timer = get_node("Timer")
 
 
 func _ready():
-	var timer = get_node("Timer")
 	timer.connect("timeout", self, "launch_laundry")
 
 
@@ -26,6 +26,10 @@ func launch_laundry():
 	for body in interior.get_overlapping_bodies():
 		if body is RigidBody2D:
 			body.apply_impulse(launch_point.position, launch_force * Vector2.UP)
+
+
+func reset():
+	timer.start()
 
 
 const MIN_LAUNCH_FORCE: int = 300

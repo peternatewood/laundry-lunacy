@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+onready var start_position: Vector2 = position
+
 var grabbed: bool = false
 var mouse_over: bool = false
 var mouse_pos: Vector2 = Vector2.ZERO
@@ -53,12 +55,19 @@ func grab(grab_position: Vector2):
 
 
 func release():
-	print("release basket")
 	grabbed = false
 	if mouse_over:
 		Input.set_custom_mouse_cursor(CURSOR_GRAB_ICON)
 	else:
 		Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)
+
+
+func reset():
+	grabbed = false
+	mouse_over = false
+	target_angle = 0.0
+	set_position(start_position)
+	set_rotation(0.0)
 
 
 func upend(direction: int):

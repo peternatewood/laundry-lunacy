@@ -44,8 +44,11 @@ func _input(event):
 
 func _on_new_round_pressed():
 	# Reset everything
+	for washer in get_tree().get_nodes_in_group("washers"):
+		washer.reset()
 	spawn_clothing()
 	hud.reset()
+	basket.reset()
 
 	get_tree().set_pause(false)
 
