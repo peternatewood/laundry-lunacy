@@ -3,6 +3,7 @@ extends Control
 onready var minutes_label = get_node("Panel/HBoxContainer/Minutes")
 onready var round_over = get_node("Round Over")
 onready var seconds_label = get_node("Panel/HBoxContainer/Seconds")
+onready var score = get_node("Round Over/PanelContainer/VBoxContainer/Score Container/Score")
 onready var timer = get_node("Timer")
 
 var minutes: int = 0
@@ -50,6 +51,10 @@ func _process(delta):
 func reset():
 	round_over.hide()
 	timer.start()
+
+
+func set_score(value: int):
+	score.set_text(str(value))
 
 
 signal new_round_pressed

@@ -56,7 +56,14 @@ func _on_quit_pressed():
 
 func _on_round_ended():
 	get_tree().set_pause(true)
-	# TODO: Count clothing in each washer
+
+	# Count clothing in each washer
+	var clothing_count: int = 0
+
+	for washer in get_tree().get_nodes_in_group("washers"):
+		clothing_count += washer.get_clothing_count()
+
+	hud.set_score(clothing_count)
 
 
 func spawn_clothing():
