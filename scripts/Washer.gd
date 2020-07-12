@@ -18,5 +18,5 @@ func launch_laundry():
 			body.apply_impulse(launch_point.position, launch_force * Vector2.UP)
 
 
-const MIN_LAUNCH_FORCE: int = 64
-const MAX_LAUNCH_FORCE: int = 320
+const MIN_LAUNCH_FORCE: int = 300
+const MAX_LAUNCH_FORCE: int = 800
