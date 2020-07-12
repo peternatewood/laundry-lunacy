@@ -13,7 +13,7 @@ func launch_laundry():
 	var launch_force: float = MIN_LAUNCH_FORCE + (randf() * MAX_LAUNCH_FORCE)
 
 	for body in interior.get_overlapping_bodies():
-		if body is RigidBody:
+		if body is RigidBody2D:
 			body.apply_impulse(launch_point.position, launch_force * Vector2.UP)
 
 
