@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Roboto-Bold.ttf" type="DynamicFontData" id=2]
@@ -31,10 +31,91 @@ Label/fonts/font = SubResource( 1 )
 Label/styles/normal = null
 PanelContainer/styles/panel = SubResource( 2 )
 
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.458824, 0.372549, 0.490196, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.321569, 0.262745, 0.341176, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.209827, 0.171341, 0.222656, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+content_margin_left = 48.0
+content_margin_right = 48.0
+content_margin_top = 40.0
+content_margin_bottom = 40.0
+bg_color = Color( 0.164706, 0.2, 0.239216, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_detail = 1
+
+[sub_resource type="DynamicFont" id=10]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 10 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource( 7 )
+Button/styles/normal = SubResource( 8 )
+Button/styles/pressed = SubResource( 9 )
+Label/colors/font_color = Color( 1, 1, 1, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = SubResource( 5 )
+Label/styles/normal = null
+PanelContainer/styles/panel = SubResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 0.498039 )
+corner_detail = 1
+
 [node name="HUD" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = SubResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -46,6 +127,7 @@ anchor_right = 1.0
 margin_left = -121.0
 margin_bottom = 62.0
 grow_horizontal = 0
+theme = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -77,7 +159,74 @@ margin_right = 89.0
 margin_bottom = 38.0
 text = "00"
 
+[node name="Round Over" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource( 6 )
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="Round Over"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -131.5
+margin_top = -121.0
+margin_right = 131.5
+margin_bottom = 121.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Round Over/PanelContainer"]
+margin_left = 48.0
+margin_top = 40.0
+margin_right = 215.0
+margin_bottom = 202.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Round Over Title" type="Label" parent="Round Over/PanelContainer/VBoxContainer"]
+margin_right = 167.0
+margin_bottom = 38.0
+text = "Round Over"
+
+[node name="Score Container" type="HBoxContainer" parent="Round Over/PanelContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 167.0
+margin_bottom = 84.0
+
+[node name="Score Label" type="Label" parent="Round Over/PanelContainer/VBoxContainer/Score Container"]
+margin_right = 93.0
+margin_bottom = 38.0
+text = "Score:"
+
+[node name="Score" type="Label" parent="Round Over/PanelContainer/VBoxContainer/Score Container"]
+margin_left = 97.0
+margin_right = 115.0
+margin_bottom = 38.0
+text = "0"
+
+[node name="New Round Button" type="Button" parent="Round Over/PanelContainer/VBoxContainer"]
+margin_top = 92.0
+margin_right = 167.0
+margin_bottom = 123.0
+text = "New Round"
+
+[node name="Quit Button" type="Button" parent="Round Over/PanelContainer/VBoxContainer"]
+margin_top = 131.0
+margin_right = 167.0
+margin_bottom = 162.0
+text = "Quit"
+
 [node name="Timer" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 5.0
 one_shot = true
 autostart = true

@@ -1,6 +1,7 @@
 extends Control
 
 onready var minutes_label = get_node("Panel/HBoxContainer/Minutes")
+onready var round_over = get_node("Round Over")
 onready var seconds_label = get_node("Panel/HBoxContainer/Seconds")
 onready var timer = get_node("Timer")
 
@@ -9,12 +10,26 @@ var seconds: int = 0
 
 
 func _ready():
+	var new_round_button = get_node("Round Over/PanelContainer/VBoxContainer/New Round Button")
+	new_round_button.connect("pressed", self, "_on_new_round_pressed")
+
+	var quit_button = get_node("Round Over/PanelContainer/VBoxContainer/Quit Button")
+	quit_button.connect("pressed", self, "_on_quit_pressed")
+
 	timer.connect("timeout", self, "_on_timeout")
 
 
+func _on_new_round_pressed():
+	emit_signal("new_round_pressed")
+
+
+func _on_quit_pressed():
+	emit_signal("quit_pressed")
+
+
 func _on_timeout():
-	# End the round
-	pass
+	round_over.show()
+	emit_signal("round_ended")
 
 
 func _process(delta):
@@ -30,3 +45,12 @@ func _process(delta):
 	if seconds != remaining_seconds:
 		seconds = remaining_seconds
 		seconds_label.set_text(String(remaining_seconds).pad_zeros(2))
+
+
+func hide_round_over():
+	round_over.hide()
+
+
+signal new_round_pressed
+signal quit_pressed
+signal round_ended
