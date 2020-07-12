@@ -15,10 +15,16 @@ func _ready():
 
 
 func _on_mouse_entered():
+	if not grabbed:
+		Input.set_custom_mouse_cursor(CURSOR_GRAB_ICON)
+
 	mouse_over = true
 
 
 func _on_mouse_exited():
+	if not grabbed:
+		Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)
+
 	mouse_over = false
 
 
@@ -41,12 +47,18 @@ func _process(delta):
 
 
 func grab(grab_position: Vector2):
+	Input.set_custom_mouse_cursor(CURSOR_GRABBING_ICON)
 	grabbed = true
 	mouse_pos = grab_position
 
 
 func release():
+	print("release basket")
 	grabbed = false
+	if mouse_over:
+		Input.set_custom_mouse_cursor(CURSOR_GRAB_ICON)
+	else:
+		Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)
 
 
 func upend(direction: int):
@@ -59,5 +71,7 @@ func upright():
 
 signal grabbed
 
+const CURSOR_GRAB_ICON = preload("res://images/cursor_grab.png")
+const CURSOR_GRABBING_ICON = preload("res://images/cursor_grabbing.png")
 const ROTATION_SPEED: float = 3.0
 const SPEED: float = 5.0

@@ -55,6 +55,7 @@ func _on_quit_pressed():
 
 
 func _on_round_ended():
+	Input.set_custom_mouse_cursor(null, Input.CURSOR_ARROW)
 	get_tree().set_pause(true)
 
 	# Count clothing in each washer
