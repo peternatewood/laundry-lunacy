@@ -227,6 +227,6 @@ margin_bottom = 162.0
 text = "Quit"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 30.0
 one_shot = true
 autostart = true
