@@ -60,6 +60,17 @@ z_index = 3
 z_as_relative = false
 shape = SubResource( 3 )
 
+[node name="Spawn Points" type="Node2D" parent="."]
+
+[node name="Point 1" type="Node2D" parent="Spawn Points"]
+position = Vector2( 160, 192 )
+
+[node name="Point 2" type="Node2D" parent="Spawn Points"]
+position = Vector2( 160, 64 )
+
+[node name="Point 3" type="Node2D" parent="Spawn Points"]
+position = Vector2( 160, -64 )
+
 [node name="Launch Point" type="Node2D" parent="."]
 position = Vector2( 160, 256 )
 

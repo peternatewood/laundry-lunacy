@@ -33,16 +33,20 @@ position = Vector2( 928, 304 )
 position = Vector2( 684.432, 697.251 )
 
 [node name="Sock" parent="." instance=ExtResource( 5 )]
-position = Vector2( 164.6, 464.05 )
+position = Vector2( -470.069, 390.562 )
+sleeping = true
 
 [node name="Boxers" parent="." instance=ExtResource( 6 )]
-position = Vector2( 102.6, 339.15 )
+position = Vector2( -468.602, 258.981 )
+sleeping = true
 
 [node name="Pants" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1001.53, 351.831 )
+position = Vector2( -471.571, 470.414 )
+sleeping = true
 
 [node name="Shirt" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1046.86, 218.005 )
+position = Vector2( -466.326, 122.805 )
+sleeping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

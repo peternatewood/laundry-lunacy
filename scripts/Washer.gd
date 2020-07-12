@@ -2,6 +2,7 @@ extends StaticBody2D
 
 onready var interior = get_node("Interior")
 onready var launch_point = get_node("Launch Point")
+onready var spawn_points = get_node("Spawn Points").get_children()
 
 
 func _ready():
