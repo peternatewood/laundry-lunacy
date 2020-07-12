@@ -1,8 +1,10 @@
 extends Node2D
 
 export (NodePath) var basket_path
+export (NodePath) var bucket_path
 
 onready var basket = get_node(basket_path)
+onready var bucket = get_node(bucket_path)
 onready var hud = get_node("CanvasLayer/HUD")
 
 var mouse_pos: Vector2 = Vector2.ZERO
