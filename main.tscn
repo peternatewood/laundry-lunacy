@@ -32,19 +32,31 @@ position = Vector2( 928, 304 )
 [node name="Basket" parent="." instance=ExtResource( 1 )]
 position = Vector2( 684.432, 697.251 )
 
-[node name="Sock" parent="." instance=ExtResource( 5 )]
+[node name="Sock" parent="." groups=[
+"clothes",
+] instance=ExtResource( 5 )]
+visible = false
 position = Vector2( -470.069, 390.562 )
 sleeping = true
 
-[node name="Boxers" parent="." instance=ExtResource( 6 )]
+[node name="Boxers" parent="." groups=[
+"clothes",
+] instance=ExtResource( 6 )]
+visible = false
 position = Vector2( -468.602, 258.981 )
 sleeping = true
 
-[node name="Pants" parent="." instance=ExtResource( 7 )]
+[node name="Pants" parent="." groups=[
+"clothes",
+] instance=ExtResource( 7 )]
+visible = false
 position = Vector2( -471.571, 470.414 )
 sleeping = true
 
-[node name="Shirt" parent="." instance=ExtResource( 8 )]
+[node name="Shirt" parent="." groups=[
+"clothes",
+] instance=ExtResource( 8 )]
+visible = false
 position = Vector2( -466.326, 122.805 )
 sleeping = true
 
