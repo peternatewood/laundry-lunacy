@@ -25,15 +25,17 @@ func _input(event):
 	elif event is InputEventMouseButton:
 		match event.button_index:
 			BUTTON_LEFT:
-				if event.pressed:
-					basket.upend(-1)
-				else:
-					basket.upright()
+				if basket.grabbed:
+					if event.pressed:
+						basket.upend(-1)
+					else:
+						basket.upright()
 			BUTTON_RIGHT:
-				if event.pressed:
-					basket.upend(1)
-				else:
-					basket.upright()
+				if basket.grabbed:
+					if event.pressed:
+						basket.upend(1)
+					else:
+						basket.upright()
 	elif event.is_action("grab"):
 		if event.pressed:
 			if not event.is_echo() and basket.mouse_over and not basket.grabbed:
